@@ -2,21 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b56ac4f8-bd21-4909-a201-d0316908aca5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ShipSegmentation.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/EDA-checkpoint.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/airbus-ship-detection-training-model-checkpoint.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot_training_metrics/plot-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_training_metrics/plot-1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot_training_metrics/plot-2.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot_training_metrics/plot-2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pretrained_models/best_weights.hdf5" beforeDir="false" afterPath="$PROJECT_DIR$/pretrained_models/best_weights.hdf5" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pretrained_models/trained_local/384_best_weight_model_1.h5" beforeDir="false" afterPath="$PROJECT_DIR$/pretrained_models/trained_local/384_best_weight_model_1.h5" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pretrained_models/trained_local/384_best_weight_model_2.h5" beforeDir="false" afterPath="$PROJECT_DIR$/pretrained_models/trained_local/384_best_weight_model_2.h5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
