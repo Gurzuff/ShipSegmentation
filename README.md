@@ -51,10 +51,9 @@ Where |A| represents the number of elements in set A, and |B| represents the num
 
 ## Architecture
 
-1) U-net model with additional BatchNormalization in each layer
-2) Optimizer - RMSprop(start_lr=1e-3) with reduceLROnPlat(factor=0.5, patience=3)
-3) Loss function - modified IoU metric:
-   loss_score = - |A ∩ B| / (|A ∪ B| - 0,1 * |A|)
+1) U-net model with additional BatchNormalization in each layer.
+2) Optimizer - RMSprop(start_lr=1e-3) with reduceLROnPlat(factor=0.5, patience=3).
+3) Loss function based on IoU metric.
 
 ## EDA:
 
