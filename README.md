@@ -8,34 +8,35 @@ The dataset for this task can be found [here](https://www.kaggle.com/competition
 
 ## Project Structure
 
-- <span style="color:purple">EDA.ipynb</span>: Jupyter notebook analyzing the dataset
-- <span style="color:green">preparation_balanced_df.py</span>: Python file for preparation training datasets
-- <span style="color:gray">balanced_dfs</span>: Folder with balanced dataframes after executing <span style="color:green">preparation_balanced_df.py</span>
-- <span style="color:green">model_training.py</span>: Python file for model training
-- <span style="color:gray">pretrained_models</span>: Folder with pretrained models after executing <span style="color:green">model_training.py</span>
-- <span style="color:gray">plot_training_metrics</span>: Folder with charts with accuracy and loss metrics after executing <span style="color:green">model_training.py</span>
-- <span style="color:green">model_inference.py</span>: Python file for model inference
-- <span style="color:gray">test_images</span>: Folder with 50 satellite images for testing on <span style="color:green">model_inference.py</span>
-- <span style="color:gray">segmented_images</span>: Folder with segmented images after executing <span style="color:green">model_inference.py</span>
-- <span style="color:blue">requirements.txt</span>: List of required Python modules
+- **EDA.ipynb** Jupyter notebook analyzing the dataset.
+- **preparation_balanced_df.py**: Python file for preparation training datasets.
+- **model_training.py**: Python file for model training.
+- **model_inference.py**: Python file for model inference.
+- **balanced_dfs**: Folder with balanced dataframes *(after executing preparation_balanced_df.py)*.
+- **pretrained_models**: Folder with pretrained models *(after executing model_training.py)*.
+- **plot_training_metrics**: Folder with charts of accuracy and loss metrics *(after executing model_training.py)*.
+- **test_images**: Folder with 50 satellite images *(for testing on model_inference.py)*.
+- **segmented_images**: Folder with segmented images *(after executing model_inference.py)*.
+- **requirements.txt**: List of required Python modules
 
 
 ## How to Run
-
-1) <span style="color:green">preparation_balanced_df.py</span> based on <span style="color:gray">balanced_dfs/</span><span style="color:orange">train_ship_segmentations_v2.csv</span>
+* unzip balanced_dfs/train_ship_segmentations_v2.zip
+1) **preparation_balanced_df.py** based on *balanced_dfs/train_ship_segmentations_v2.csv*
 prepares two additional dataframes balanced by the number of masks in each image:
-    - <span style="color:gray">balanced_dfs/</span><span style="color:orange">balanced_train_df_1.csv</span> - 100% images with masks;
-    - <span style="color:gray">balanced_dfs/</span><span style="color:orange">balanced_train_df_2.csv</span> - 50% of images with masks and 50% without masks.
-2) <span style="color:green">model_training.py</span> trains the model in two iterations (on two balanced data sets)
+    - *balanced_dfs/balanced_train_df_1.csv* - 100% images with masks;
+    - *balanced_dfs/balanced_train_df_2.csv* - 50% of images with masks and 50% without masks.
+2) **model_training.py** trains the model in two iterations (on two balanced data sets)
 and save (depending on the size of the images supplied to the model input: 768 or 384) the trained models (at each training iteration):
-   - <span style="color:gray">pretrained_models/trained_local/</span><span style="color:red">384_best_weight_model_1.h5</span> - after the first iteration of training;
-   - <span style="color:gray">pretrained_models/trained_local/</span><span style="color:red">384_best_weight_model_2.h5</span> - after the second iteration of training.
+   - *pretrained_models/trained_local/384_best_weight_model_1.h5* - after the first iteration of training;
+   - *pretrained_models/trained_local/384_best_weight_model_2.h5* - after the second iteration of training.
    It also saves graphs of the evolution of the Dice and Loss metrics at the training epochs:
-   - <span style="color:gray">plot_training_metrics/</span><span style="color:yellow">plot-1.png</span> - after the first iteration of training;
-   - <span style="color:gray">plot_training_metrics/</span><span style="color:yellow">plot-2.png</span> - after the second iteration of training.
-3) <span style="color:green">model_inference.py</span> uses two functions to test the model on new images: 
-   - <span style="color:brown">def segmentation_random_images</span> displays and saves 5 random images to a folder: <span style="color:gray">segmented_images/</span><span style="color:yellow">segmented_5_images.png</span>
-   - <span style="color:brown">def segmentation_load_image</span> displays and saves 1 selected image to a folder: (<span style="color:gray">segmented_images/</span><span style="color:yellow">segmented_loaded_image.png</span>), - but for it to work, you need to set the path (**image_path**) to this image in the file.
+   - *plot_training_metrics/plot-1.png* - after the first iteration of training;
+   - *plot_training_metrics/plot-2.png* - after the second iteration of training.
+3) **model_inference.py** uses two functions to test the model on new images: 
+   - *def segmentation_random_images* displays and saves 5 random images to a folder: *segmented_images/segmented_5_images.png*.
+   - *def segmentation_load_image* displays and saves 1 selected image to a folder: *segmented_images/segmented_loaded_image.png*, - but for it to work, you need to set the path (**image_path**) to this image in the file.
+
 
 ## Evaluation Metrics
 
@@ -46,7 +47,7 @@ Dice coefficient = 2 * |A ∩ B| / (|A| + |B|)
 
 Where |A| represents the number of elements in set A, and |B| represents the number of elements in set B. |A ∩ B| represents the number of elements that are present in both sets.
 
-![](readme_images/metrics.png)
+![](plot_training_metrics/plot-1.png)
 
 ## Architecture
 

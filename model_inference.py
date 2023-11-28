@@ -20,13 +20,10 @@ if __name__ == '__main__':
     # Custom loss function
     def IoU_loss(y_true, y_pred, eps=1e-6):
         y_true = K.cast(y_true, 'float32')
-        empty_image = K.equal(K.max(y_true), 0.0)
-        if K.any(empty_image):
-            y_true = 1 - y_true
-            y_pred = 1 - y_pred
         intersection = K.sum(y_true * y_pred, axis=[1, 2, 3])
         union = K.sum(y_true, axis=[1, 2, 3]) + K.sum(y_pred, axis=[1, 2, 3]) - intersection
-        return -K.mean((intersection + eps) / (union + eps), axis=0)
+        loss_score = - K.mean((intersection + eps) / (union + K.sum(y_true, axis=[1, 2, 3]) + eps), axis=0)
+        return loss_score
 
     # Visualization of several segmented images
     def segmentation_random_images(count_imgs=5, model_input=(384, 384), ROOT='test_images'):

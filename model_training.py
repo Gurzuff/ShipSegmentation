@@ -137,9 +137,9 @@ if __name__=='__main__':
         y_true = K.cast(y_true, 'float32')
         intersection = K.sum(y_true * y_pred, axis=[1, 2, 3])
         union = K.sum(y_true, axis=[1, 2, 3]) + K.sum(y_pred, axis=[1, 2, 3]) - intersection
-        # loss_score = - K.mean((intersection + eps) / (union + eps), axis=0)
-        # loss_score = - K.mean((intersection + eps) / (union + K.sum(y_true, axis=[1, 2, 3]) + eps), axis=0)  - best score: 0.61
-        loss_score = - K.mean((intersection + eps) / (union - 0.9 * K.sum(y_true, axis=[1, 2, 3]) + eps), axis=0)   # 0.605 with k=0.5
+        loss_score = - K.mean((intersection + eps) / (union + eps), axis=0)
+        # loss_score = - K.mean((intersection + eps) / (union + K.sum(y_true, axis=[1, 2, 3]) + eps), axis=0)
+        # loss_score = - K.mean((intersection + eps) / (union - 0.5 * K.sum(y_true, axis=[1, 2, 3]) + eps), axis=0)
         return loss_score
 
     def build_unet_model(input_shape, upsample):
@@ -263,7 +263,7 @@ seg_model.compile(optimizer=RMSprop(lr=LR),    #Adam(LR, decay=1e-6),
                   metrics=[dice_coef, 'binary_accuracy'])
 
 # FIRST iteration of model training
-NB_EPOCHS = 30
+NB_EPOCHS = 35
 MAX_TRAIN_STEPS = 35
 print('Started FIRST training iteration')
 history_1 = seg_model.fit(create_aug_gen(make_image_gen(train_df_1, BATCH_SIZE)),
@@ -310,7 +310,7 @@ seg_model.compile(optimizer=RMSprop(lr=LR),    #Adam(LR, decay=1e-6),
                   metrics=[dice_coef, 'binary_accuracy'])
 
 # SECOND iteration of model training
-NB_EPOCHS = 30
+NB_EPOCHS = 50
 MAX_TRAIN_STEPS = 35
 print('Started SECOND training iteration')
 history_2 = seg_model.fit(create_aug_gen(make_image_gen(train_df_2, BATCH_SIZE)),
